@@ -1,11 +1,18 @@
 package com.df4j.xcframework.base.util;
 
+import org.springframework.util.ObjectUtils;
+
 import java.util.List;
 
 /**
  * 常用的字符串转换类
  */
 public class StringUtils {
+
+    public static boolean isEmpty(String content) {
+        return !ObjectUtils.isEmpty(content) && !ObjectUtils.isEmpty(content.trim());
+    }
+
     /**
      * 类名转对象名
      *
