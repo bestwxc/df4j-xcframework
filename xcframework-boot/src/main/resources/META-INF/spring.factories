@@ -1,0 +1,2 @@
+org.springframework.boot.SpringApplicationRunListener=\
+    com.df4j.xcframework.boot.listner.DefaultSpringApplicationRunListener

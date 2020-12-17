@@ -1,4 +1,4 @@
-package com.df4j.xcframework.base;
+package com.df4j.xcframework.base.concurrent;
 
 import com.df4j.xcframework.base.exception.BusinessException;
 import org.slf4j.Logger;

@@ -8,6 +8,7 @@
         <module>xcframework-jdbc</module>
         <module>xcframework-web</module>
         <module>xcframework-webflux</module>
+        <module>xcframework-boot</module>
     </modules>
 
     <parent>
