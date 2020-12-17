@@ -3,11 +3,10 @@ package com.df4j.xcframework.base.exception;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import static com.df4j.xcframework.base.constant.Constants.NAME;
+import static com.df4j.xcframework.base.constant.Constants.BASE_ERROR_GROUP;
 import static com.df4j.xcframework.base.exception.ErrorCode.*;
 
 public class BusinessErrorManager {
@@ -33,12 +32,12 @@ public class BusinessErrorManager {
         xcframeworkErrorMap.put(INCORRECT_SQL, "不正确的SQL语句");
         xcframeworkErrorMap.put(DUPLICATE_RECORD, "记录重复");
         // 放入不可变map，防止其他地方获取map后进行修改，只允许通过该类的接口进行修改
-        allErrorMap.put(NAME, Collections.unmodifiableMap(xcframeworkErrorMap));
+        allErrorMap.put(BASE_ERROR_GROUP, Collections.unmodifiableMap(xcframeworkErrorMap));
     }
 
     public static void setErrorMap(String errorGroupCode, Map<Integer,String> errorMap) {
-        if(NAME.equals(errorGroupCode)) {
-            logger.warn("xcframework框架默认的errorMap不允许动态设置，请使用其他errorGroupCode");
+        if(BASE_ERROR_GROUP.equals(errorGroupCode)) {
+            logger.warn("XCF框架默认的errorMap不允许动态设置，请使用其他errorGroupCode");
             return;
         }
         if(errorMap == null || errorMap.isEmpty()) {
@@ -55,7 +54,7 @@ public class BusinessErrorManager {
 
     public static String getErrorInfo(String errorGroupCode, Integer errorNo) {
         if(StringUtils.isEmpty(errorGroupCode)) {
-            errorGroupCode = NAME;
+            errorGroupCode = BASE_ERROR_GROUP;
         }
         return allErrorMap.get(errorGroupCode).get(errorNo);
     }
