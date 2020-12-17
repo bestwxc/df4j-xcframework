@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.df4j.xcframework.webflux</groupId>
-    <artifactId>df4j-xcframework-webflux</artifactId>
+    <artifactId>xcframework-webflux</artifactId>
 
     <properties>
     </properties>

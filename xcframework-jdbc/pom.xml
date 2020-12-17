@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.df4j.xcframework.jdbc</groupId>
-    <artifactId>df4j-xcframework-jdbc</artifactId>
+    <artifactId>xcframework-jdbc</artifactId>
 
     <dependencies>
         <dependency>
