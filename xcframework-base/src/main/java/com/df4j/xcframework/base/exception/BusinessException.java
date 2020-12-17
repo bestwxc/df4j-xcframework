@@ -2,6 +2,7 @@ package com.df4j.xcframework.base.exception;
 
 import com.df4j.xcframework.base.constant.Constants;
 import org.springframework.util.StringUtils;
+
 import static com.df4j.xcframework.base.exception.ErrorCode.*;
 
 public class BusinessException extends XcException {
@@ -48,14 +49,14 @@ public class BusinessException extends XcException {
     }
 
     private Integer judgeErrorNo(Throwable t, Integer errorNo) {
-        if(errorNo != null) {
+        if (errorNo != null) {
             return errorNo;
         }
 
-        if(t instanceof XcException) {
+        if (t instanceof XcException) {
             return UNHANDLE_BUSINESS_EXCEPTION;
         }
-        if(t instanceof RuntimeException) {
+        if (t instanceof RuntimeException) {
             return UNHANDLE_RUNTIME_EXCEPTION;
         }
         return UNHANDLE_SYSTEM_ERROR;

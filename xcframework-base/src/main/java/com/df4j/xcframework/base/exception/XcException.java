@@ -3,7 +3,7 @@ package com.df4j.xcframework.base.exception;
 /**
  * 异常基类
  */
-public class XcException extends RuntimeException{
+public class XcException extends RuntimeException {
 
     private static final long serialVersionUID = 8852397145821381533L;
 

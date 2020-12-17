@@ -1,6 +1,6 @@
 package com.df4j.xcframework.base.exception;
 
-public class ErrorCode{
+public class ErrorCode {
 
     /**
      * 成功
