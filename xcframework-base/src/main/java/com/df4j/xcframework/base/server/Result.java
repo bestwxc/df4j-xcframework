@@ -1,10 +1,13 @@
 package com.df4j.xcframework.base.server;
 
+import com.df4j.xcframework.base.constant.ResultType;
+import com.df4j.xcframework.base.exception.ErrorCode;
+
 public abstract class Result<T> {
 
-    private Integer errorNo;
-    private String errorInfo;
-    private String resultType;
+    private Integer errorNo = ErrorCode.SUCCESS;
+    private String errorInfo = "请求成功";
+    private String resultType = ResultType.OBJECT;
     private T result;
 
     public Result(String resultType) {

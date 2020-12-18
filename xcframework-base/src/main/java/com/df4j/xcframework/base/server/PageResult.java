@@ -11,7 +11,7 @@ public class PageResult<T> extends MultiResult<T> {
         super(true, null);
     }
 
-    public PageResult(List<T> list, Integer pageNum, Integer pageSize, Integer total) {
+    public PageResult(Integer pageNum, Integer pageSize, Integer total, List<T> list) {
         super(true, list);
         this.pageNum = pageNum;
         this.pageSize = pageSize;

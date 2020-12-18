@@ -13,4 +13,7 @@ public class SingleResult<T> extends Result<T> {
         this.setResult((T) result);
     }
 
+    public SingleResult(Integer errorNo, String errorInfo, T result) {
+        super(errorNo, errorInfo, ResultType.OBJECT, result);
+    }
 }
