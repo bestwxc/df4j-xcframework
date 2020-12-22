@@ -11,8 +11,10 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -20,7 +22,8 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Component
+@ConditionalOnProperty(prefix = "df.boot.datasource", name = "enabled", havingValue = "true")
 public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     private Logger logger = LoggerFactory.getLogger(DynamicDatasourceBeanFactoryPostProcessor.class);
