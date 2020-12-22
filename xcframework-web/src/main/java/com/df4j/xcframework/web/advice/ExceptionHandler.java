@@ -18,7 +18,6 @@ public class ExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
 
     @org.springframework.web.bind.annotation.ExceptionHandler
-
     @ResponseBody
     public Result handler(Throwable t) {
         Integer errorNo = null;
