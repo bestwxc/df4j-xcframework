@@ -1,2 +1,4 @@
 org.springframework.boot.SpringApplicationRunListener=\
-    com.df4j.xcframework.boot.listner.DefaultSpringApplicationRunListener
+    com.df4j.xcframework.boot.listner.DefaultSpringApplicationRunListener,\
+    com.df4j.xcframework.boot.listner.InitCaffeineCacheSpringApplicationRunListener
+com.df4j.xcframework.boot.cache.caffeine.cacheNames=

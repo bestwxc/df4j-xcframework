@@ -14,6 +14,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.df4j.xcframework.base</groupId>
+            <artifactId>xcframework-base</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
