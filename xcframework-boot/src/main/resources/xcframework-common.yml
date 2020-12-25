@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  config: classpath:logback-spring-pdt-info.xml
+logback:
+  logdir: ./log
