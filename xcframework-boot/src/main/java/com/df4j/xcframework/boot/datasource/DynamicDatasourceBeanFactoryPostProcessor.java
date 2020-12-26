@@ -23,14 +23,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@ConditionalOnProperty(prefix = "df.boot.datasource", name = "enabled", havingValue = "true")
+@ConditionalOnProperty(prefix = "df4j.xcframework.datasource", name = "enabled", havingValue = "true")
 public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     private Logger logger = LoggerFactory.getLogger(DynamicDatasourceBeanFactoryPostProcessor.class);
 
     private static String SPRING_DATASOURCE_PREFIX = "spring.datasource";
 
-    private static String DEFAULT_DATASOURCE_PREFIX = "com.df4j.xcframework.datasource.datasources";
+    private static String DEFAULT_DATASOURCE_PREFIX = "df4j.xcframework.datasource.datasources";
 
     private String dynamicDatasourcePropertiesPrefix;
 
