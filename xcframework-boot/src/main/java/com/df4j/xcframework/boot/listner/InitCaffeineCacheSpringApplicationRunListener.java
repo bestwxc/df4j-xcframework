@@ -13,6 +13,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class InitCaffeineCacheSpringApplicationRunListener implements SpringApplicationRunListener {
@@ -31,16 +32,21 @@ public class InitCaffeineCacheSpringApplicationRunListener implements SpringAppl
 
     @Override
     public void started(ConfigurableApplicationContext context) {
+        Environment environment = context.getEnvironment();
+        String cacheType = environment.getProperty("spring.cache.type");
+        if (!ObjectUtils.isEmpty(cacheType) && !"caffeine".equals(cacheType.toLowerCase(Locale.ROOT))) {
+            logger.warn("spring.cache.type的值不为caffeine,跳过caffeine初始化");
+            return;
+        }
         CaffeineCacheManager caffeineCacheManager = null;
+        final String applicationName = environment.getProperty("spring.application.name");
         if (context instanceof AnnotationConfigServletWebServerApplicationContext) {
             try {
-                caffeineCacheManager = context.getBeanFactory().getBean(CaffeineCacheManager.class);
+                caffeineCacheManager = context.getBean(CaffeineCacheManager.class);
                 if (ObjectUtils.isEmpty(caffeineCacheManager)) {
                     logger.info("获取不到caffeineCacheManager，请检查是否启用了caffeine cache");
                 }
                 List<String> cacheNames = FactoryConfigUtils.loadFactoryNames(CAFFEINE_CACHE_NAMES);
-                Environment environment = context.getEnvironment();
-                final String applicationName = environment.getProperty("spring.cache.type");
                 if (!ObjectUtils.isEmpty(cacheNames)) {
                     logger.info("即将在caffeineCacheManager增加applicatino中配置的缓存类型,applicationName:{}, keys:{}",
                             applicationName, JsonUtils.stringify(cacheNames));

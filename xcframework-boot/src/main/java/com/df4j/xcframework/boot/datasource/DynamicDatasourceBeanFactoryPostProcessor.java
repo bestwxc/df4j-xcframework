@@ -23,15 +23,17 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.df4j.xcframework.boot.datasource.DynamicDatasourceBeanFactoryPostProcessor.DEFAULT_DATASOURCE_PREFIX;
+
 @Component
-@ConditionalOnProperty(prefix = "df4j.xcframework.datasource", name = "enabled", havingValue = "true")
+@ConditionalOnProperty(prefix = DEFAULT_DATASOURCE_PREFIX, name = "enabled", havingValue = "true")
 public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     private Logger logger = LoggerFactory.getLogger(DynamicDatasourceBeanFactoryPostProcessor.class);
 
-    private static String SPRING_DATASOURCE_PREFIX = "spring.datasource";
+    private static final String SPRING_DATASOURCE_PREFIX = "spring.datasource";
 
-    private static String DEFAULT_DATASOURCE_PREFIX = "df4j.xcframework.datasource.datasources";
+    public static final String DEFAULT_DATASOURCE_PREFIX = "df4j.xcframework.datasource";
 
     private String dynamicDatasourcePropertiesPrefix;
 
@@ -80,7 +82,8 @@ public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPos
                             logger.info("配置{}数据源{}节点完成", datasourceKey, nodeKey);
                             targetDataSources.put(beanName, dataSource);
                         }catch (Exception e) {
-                            logger.warn("初始化多数据源节点错误,datasourceKey:{}, nodeKey:{}", datasourceKey, nodeKey);
+                            String msg = String.format("初始化多数据源节点错误,datasourceKey:%s, nodeKey:%s", datasourceKey, nodeKey);
+                            logger.error(msg, e);
                         }
                     }
                     DataSourceNodeManager.addDataSource(datasourceKey, datasource.getMaster(), nodeBeanKeys);
@@ -100,17 +103,20 @@ public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPos
     }
 
     private DataSource initDataSource(Environment environment, String type, String datasourceKey, String nodeKey) {
+        // 用属性绑定，此处只能绑定基础的配置，所以选用改两部分配置合并
         String[] binderTypes = new String[]{
                 SPRING_DATASOURCE_PREFIX,
-                SPRING_DATASOURCE_PREFIX + "." + type,
-                DEFAULT_DATASOURCE_PREFIX + "." + datasourceKey + ".nodes." + nodeKey};
-        // 用属性生成对象
+                DEFAULT_DATASOURCE_PREFIX + ".datasources." + datasourceKey + ".nodes." + nodeKey};
         DataSourceProperties dataSourceProperties = BinderUtils.binder(environment, binderTypes, DataSourceProperties.class);
         DataSource dataSource = dataSourceProperties
                 .initializeDataSourceBuilder()
                 .type(this.getDatasourceClass(type))
                 .build();
         // 再次绑定属性
+        // 主要再次绑定数据源的配置信息
+        binderTypes = new String[]{
+                SPRING_DATASOURCE_PREFIX + "." + type,
+                DEFAULT_DATASOURCE_PREFIX + ".datasources." + datasourceKey + ".nodes." + nodeKey};
         BinderUtils.binder(environment, binderTypes, dataSource);
         // 如果需要初始化，则初始化数据源
         if (StringUtils.hasText(DataSourceType.getDataSourceType(type).getInitMethodName())) {

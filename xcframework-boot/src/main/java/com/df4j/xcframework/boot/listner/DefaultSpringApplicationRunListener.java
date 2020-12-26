@@ -21,37 +21,37 @@ public class DefaultSpringApplicationRunListener implements SpringApplicationRun
 
     @Override
     public void starting() {
-        this.getMsg("starting");
+        logger.error(this.getMsg("starting"));
     }
 
     @Override
     public void environmentPrepared(ConfigurableEnvironment environment) {
-        this.getMsg("environmentPrepared");
+        logger.error(this.getMsg("environmentPrepared"));
     }
 
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
-        this.getMsg("contextPrepared");
+        logger.error(this.getMsg("contextPrepared"));
     }
 
     @Override
     public void contextLoaded(ConfigurableApplicationContext context) {
-        this.getMsg("contextLoaded");
+        logger.error(this.getMsg("contextLoaded"));
     }
 
     @Override
     public void started(ConfigurableApplicationContext context) {
-        this.getMsg("started");
+        logger.error(this.getMsg("started"));
     }
 
     @Override
     public void running(ConfigurableApplicationContext context) {
-        this.getMsg("running");
+        logger.error(this.getMsg("running"));
     }
 
     @Override
     public void failed(ConfigurableApplicationContext context, Throwable exception) {
-        this.getMsg("failed");
+        logger.error(this.getMsg("failed"));
     }
 
     private String getMsg(String type) {

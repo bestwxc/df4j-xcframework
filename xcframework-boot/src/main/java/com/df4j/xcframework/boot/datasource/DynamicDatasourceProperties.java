@@ -1,5 +1,6 @@
 package com.df4j.xcframework.boot.datasource;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class DynamicDatasourceProperties {
     // 默认数据源
     private String defaultKey;
     // 数据源配置
-    private Map<String, DynamicDatasourceNode> datasources;
+    private Map<String, DynamicDatasourceNode> datasources = new LinkedHashMap<>();
 
     public boolean isEnabled() {
         return enabled;
@@ -62,7 +63,7 @@ public class DynamicDatasourceProperties {
         private boolean enableReadNodes = false;
 
         // 详细节点配置
-        private Map<String, Map<String, Object>> nodes;
+        private Map<String, Map<String, Object>> nodes = new LinkedHashMap<>();
 
         public String getType() {
             return type;
