@@ -1,0 +1,41 @@
+spring:
+  aop:
+    auto: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    favicon:
+      enabled: false
+  cache:
+    type: caffeine
+    caffeine:
+      spec: initialCapacity=64,maximumSize=1024,expireAfterAccess=60s
+  datasource:
+    type: com.df4j.xcframework.jdbc.datasource.DefaultDynamicDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 40
+      connection-timeout: 3000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+server:
+  tomcat:
+    accept-count: 1000
+    max-connections: 10000
+    uri-encoding: UTF-8
+    connection-timeout: 2s
+    threads:
+      max: 200
+      min-spare: 16
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        max-age: 24h
+      timeout: 30m
+logging:
+  config: classpath:logback-spring-pdt-info.xml
+logback:
+  logdir: ./log
