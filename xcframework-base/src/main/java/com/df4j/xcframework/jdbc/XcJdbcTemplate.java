@@ -130,7 +130,7 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public void query(Connection con, String sql, RowCallbackHandler rch) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        query(con, sql, new XcJdbcTemplate.RowCallbackHandlerResultSetExtractor(rch));
+        query(con, sql, new RowCallbackHandlerResultSetExtractor(rch));
     }
 
     @Override
@@ -306,7 +306,7 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public <T> T execute(Connection con, String sql, PreparedStatementCallback<T> action) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        return execute(con, new XcJdbcTemplate.SimplePreparedStatementCreator(sql), action);
+        return execute(con, new SimplePreparedStatementCreator(sql), action);
     }
 
     @Nullable
@@ -348,7 +348,7 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public <T> T query(Connection con, String sql, PreparedStatementSetter pss, ResultSetExtractor<T> rse) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        return query(con, new XcJdbcTemplate.SimplePreparedStatementCreator(sql), pss, rse);
+        return query(con, new SimplePreparedStatementCreator(sql), pss, rse);
     }
 
     @Override
@@ -372,13 +372,13 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public void query(Connection con, PreparedStatementCreator psc, RowCallbackHandler rch) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        query(con, psc, new XcJdbcTemplate.RowCallbackHandlerResultSetExtractor(rch));
+        query(con, psc, new RowCallbackHandlerResultSetExtractor(rch));
     }
 
     @Override
     public void query(Connection con, String sql, PreparedStatementSetter pss, RowCallbackHandler rch) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        query(con, sql, pss, new XcJdbcTemplate.RowCallbackHandlerResultSetExtractor(rch));
+        query(con, sql, pss, new RowCallbackHandlerResultSetExtractor(rch));
     }
 
     @Override
@@ -596,7 +596,7 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public int update(Connection con, String sql, PreparedStatementSetter pss) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        return update(con, new XcJdbcTemplate.SimplePreparedStatementCreator(sql), pss);
+        return update(con, new SimplePreparedStatementCreator(sql), pss);
     }
 
     @Override
@@ -784,7 +784,7 @@ public class XcJdbcTemplate extends JdbcTemplate implements XcJdbcOperations {
     @Override
     public <T> T execute(Connection con, String callString, CallableStatementCallback<T> action) throws DataAccessException {
         Assert.notNull(con, "con object must not be null");
-        return execute(con, new XcJdbcTemplate.SimpleCallableStatementCreator(callString), action);
+        return execute(con, new SimpleCallableStatementCreator(callString), action);
     }
 
     @Override

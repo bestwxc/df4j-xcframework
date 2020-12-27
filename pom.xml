@@ -5,7 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>xcframework-base</module>
-        <module>xcframework-jdbc</module>
         <module>xcframework-web</module>
         <module>xcframework-webflux</module>
         <module>xcframework-boot</module>
