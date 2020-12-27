@@ -25,8 +25,6 @@ import java.util.Map;
 
 import static com.df4j.xcframework.boot.datasource.DynamicDatasourceBeanFactoryPostProcessor.DEFAULT_DATASOURCE_PREFIX;
 
-@Component
-@ConditionalOnProperty(prefix = DEFAULT_DATASOURCE_PREFIX, name = "enabled", havingValue = "true")
 public class DynamicDatasourceBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     private Logger logger = LoggerFactory.getLogger(DynamicDatasourceBeanFactoryPostProcessor.class);

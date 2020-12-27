@@ -1,3 +1,8 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.df4j.xcframework.boot.config.CacheAutoConfiguration,\
+    com.df4j.xcframework.boot.config.CorsConAutofiguration,\
+    com.df4j.xcframework.boot.config.DynamicDataSourceAutoConfiguration
 org.springframework.boot.SpringApplicationRunListener=\
     com.df4j.xcframework.boot.listner.DefaultSpringApplicationRunListener,\
     com.df4j.xcframework.boot.listner.InitCaffeineCacheSpringApplicationRunListener
