@@ -4,10 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-@Component("xcSpringUtils")
 public class SpringUtils implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext = null;
