@@ -9,6 +9,8 @@
         <module>xcframework-web</module>
         <module>xcframework-webflux</module>
         <module>xcframework-boot</module>
+        <module>xcframework-mybatis</module>
+        <module>xcframework-data-jpa</module>
     </modules>
 
     <parent>

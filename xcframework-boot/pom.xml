@@ -14,8 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.df4j.xcframework.base</groupId>
-            <artifactId>xcframework-base</artifactId>
+            <groupId>com.df4j.xcframework.web</groupId>
+            <artifactId>xcframework-web</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
