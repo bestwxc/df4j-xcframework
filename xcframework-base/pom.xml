@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.df4j.xcframework.base</groupId>
     <artifactId>xcframework-base</artifactId>
 
     <properties>

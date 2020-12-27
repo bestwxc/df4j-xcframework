@@ -8,13 +8,11 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.df4j.xcframework.jdbc</groupId>
     <artifactId>xcframework-jdbc</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.df4j.xcframework.base</groupId>
+            <groupId>com.df4j.xcframework</groupId>
             <artifactId>xcframework-base</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

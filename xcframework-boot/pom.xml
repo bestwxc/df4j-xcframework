@@ -14,12 +14,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.df4j.xcframework.web</groupId>
+            <groupId>com.df4j.xcframework</groupId>
             <artifactId>xcframework-web</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.df4j.xcframework.jdbc</groupId>
+            <groupId>com.df4j.xcframework</groupId>
             <artifactId>xcframework-jdbc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
