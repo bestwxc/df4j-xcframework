@@ -16,7 +16,7 @@ public class BaseEntiry<T extends Serializable> extends SuperEntity {
     @Id
     private T id;
 
-    @Column(name = "unique_str", nullable = false, length = 80)
+    @Column(name = "unique_str", nullable = false, length = 80, unique = true)
     private String uniqueStr;
 
     @CreatedBy
