@@ -14,6 +14,9 @@ public class BaseEntity<T extends Serializable> implements Serializable {
     @Column(name = "unique_str", nullable = false, length = 80, unique = true)
     private String uniqueStr;
 
+    @Column(name = "sys_code", length = 100, nullable = false)
+    private String sysCode;
+
     public T getId() {
         return id;
     }
@@ -28,5 +31,13 @@ public class BaseEntity<T extends Serializable> implements Serializable {
 
     public void setUniqueStr(String uniqueStr) {
         this.uniqueStr = uniqueStr;
+    }
+
+    public String getSysCode() {
+        return sysCode;
+    }
+
+    public void setSysCode(String sysCode) {
+        this.sysCode = sysCode;
     }
 }
