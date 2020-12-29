@@ -6,18 +6,12 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class BaseEntiry<T extends Serializable> extends SuperEntity {
-    @Id
-    private T id;
-
-    @Column(name = "unique_str", nullable = false, length = 80, unique = true)
-    private String uniqueStr;
+public class AuditableEntity<T extends Serializable> extends BaseEntity<T> {
 
     @CreatedBy
     @Column(name = "created_by", nullable = false, length = 40)
@@ -34,22 +28,6 @@ public class BaseEntiry<T extends Serializable> extends SuperEntity {
     @LastModifiedDate
     @Column(name = "last_modified_time", nullable = false)
     private LocalDateTime lastModifiedDate;
-
-    public T getId() {
-        return id;
-    }
-
-    public void setId(T id) {
-        this.id = id;
-    }
-
-    public String getUniqueStr() {
-        return uniqueStr;
-    }
-
-    public void setUniqueStr(String uniqueStr) {
-        this.uniqueStr = uniqueStr;
-    }
 
     public String getCreatedBy() {
         return createdBy;
