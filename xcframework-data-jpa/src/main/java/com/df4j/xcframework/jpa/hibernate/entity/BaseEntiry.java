@@ -20,20 +20,20 @@ public class BaseEntiry<T extends Serializable> extends SuperEntity {
     private String uniqueStr;
 
     @CreatedBy
-    @Column(name = "create_by", nullable = false, length = 40)
-    private String createBy;
+    @Column(name = "created_by", nullable = false, length = 40)
+    private String createdBy;
 
     @CreatedDate
-    @Column(name = "create_time", nullable = false)
-    private LocalDateTime createTime;
+    @Column(name = "created_time", nullable = false)
+    private LocalDateTime createdDate;
 
     @LastModifiedBy
-    @Column(name = "update_by", nullable = false, length = 40)
-    private String updateBy;
+    @Column(name = "last_modified_by", nullable = false, length = 40)
+    private String lastModifiedBy;
 
     @LastModifiedDate
-    @Column(name = "update_time", nullable = false)
-    private LocalDateTime updateTime;
+    @Column(name = "last_modified_time", nullable = false)
+    private LocalDateTime lastModifiedDate;
 
     public T getId() {
         return id;
@@ -51,35 +51,35 @@ public class BaseEntiry<T extends Serializable> extends SuperEntity {
         this.uniqueStr = uniqueStr;
     }
 
-    public String getCreateBy() {
-        return createBy;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getUpdateBy() {
-        return updateBy;
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
     }
 
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
+    public LocalDateTime getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
+    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }
