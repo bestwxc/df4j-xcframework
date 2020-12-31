@@ -55,6 +55,9 @@ public class PojoUtils {
         try {
             final Class sourceClazz = source.getClass();
             String fieldName = targetField.getName();
+            if("serialVersionUID".equals(fieldName)) {
+                return;
+            }
             Field sourceField = ReflectionUtils.findField(sourceClazz, fieldName);
             if (!ObjectUtils.isEmpty(sourceField)) {
                 sourceField.setAccessible(true);

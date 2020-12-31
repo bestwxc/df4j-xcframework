@@ -14,8 +14,12 @@ public class ResultUtils {
         return new SingleResult(errorNo, errorInfo, result);
     }
 
-    public static Result success(List result) {
-        return new MultiResult(result);
+    public static Result success(Object result) {
+        if(result instanceof List) {
+            return new MultiResult((List) result);
+        } else {
+            return new SingleResult(result);
+        }
     }
 
     public static Result success(Integer pageNum, Integer pageSize, Integer total, List result) {

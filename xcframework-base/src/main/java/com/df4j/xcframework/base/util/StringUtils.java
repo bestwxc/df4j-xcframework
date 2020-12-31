@@ -10,7 +10,7 @@ import java.util.List;
 public class StringUtils {
 
     public static boolean isEmpty(String content) {
-        return !ObjectUtils.isEmpty(content) && !ObjectUtils.isEmpty(content.trim());
+        return ObjectUtils.isEmpty(content) || ObjectUtils.isEmpty(content.trim());
     }
 
     /**
