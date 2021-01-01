@@ -65,7 +65,7 @@ public class RedisDistributedLock extends AbstractDistributedLock {
         return "1".equals(String.valueOf(res));
     }
 
-    private String getKey(String lockGroup, String lockName) {
-        return (lockGroup + "_" + lockName).toUpperCase();
+    public String getKey(String lockGroup, String lockName) {
+        return ("DISTRIBUTED_LOCK:" + lockGroup + ":" + lockName).toUpperCase();
     }
 }
