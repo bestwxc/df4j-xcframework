@@ -12,6 +12,9 @@
     <groupId>com.df4j.xcframework.boot</groupId>
     <artifactId>xcframework-boot</artifactId>
 
+    <properties>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.df4j.xcframework</groupId>
@@ -43,8 +46,4 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
     </dependencies>
-
-    <properties>
-    </properties>
-
 </project>
