@@ -25,6 +25,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <git.properties.filename>${project.artifactId}-git.properties</git.properties.filename>
     </properties>
 
 </project>
