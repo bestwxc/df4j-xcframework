@@ -44,5 +44,5 @@ public abstract class AbstractRunnable implements Runnable {
     }
 
 
-    abstract void run0();
+    public abstract void run0();
 }
