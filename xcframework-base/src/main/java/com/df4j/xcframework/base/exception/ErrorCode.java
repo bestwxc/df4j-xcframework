@@ -63,7 +63,7 @@ public class ErrorCode {
     /**
      * 未授权
      */
-    public final static Integer UNAYTHORIZED = -998;
+    public final static Integer UNAUTHORIZED = -998;
 
     /**
      * 未登录
