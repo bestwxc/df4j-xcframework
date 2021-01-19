@@ -30,7 +30,10 @@ public class BusinessErrorManager {
         xcframeworkErrorMap.put(INCORRECT_REQUEST_ARG, "不正确的请求参数");
         xcframeworkErrorMap.put(INCORRECT_CREDENTIALS, "不正确的密码或令牌");
         xcframeworkErrorMap.put(AUTHORIZED_EXPIRED, "认证过期");
-        xcframeworkErrorMap.put(UNAYTHORIZED, "未授权");
+        xcframeworkErrorMap.put(INCORRECT_CAPTCHA, "图形验证码不正确");
+        xcframeworkErrorMap.put(INCORRECT_SMS_CODE, "短信验证码不正确");
+        xcframeworkErrorMap.put(LOGIN_FAIL, "登陆失败");
+        xcframeworkErrorMap.put(UNAUTHORIZED, "未授权");
         xcframeworkErrorMap.put(UNLOGIN, "未登录");
         xcframeworkErrorMap.put(INCORRECT_SQL, "不正确的SQL语句");
         xcframeworkErrorMap.put(DUPLICATE_RECORD, "记录重复");
