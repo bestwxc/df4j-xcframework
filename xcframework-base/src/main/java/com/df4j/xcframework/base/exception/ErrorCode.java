@@ -36,6 +36,26 @@ public class ErrorCode {
     public final static Integer INCORRECT_REQUEST_ARG = -101;
 
     /**
+     * 图形验证码不正确
+     */
+    public final static Integer INCORRECT_CAPTCHA = -992;
+
+    /**
+     * 短信验证码不正确
+     */
+    public final static Integer INCORRECT_SMS_CODE = -993;
+
+    /**
+     * 账号被禁用
+     */
+    public final static Integer DISABLED_ACCOUNT = -994;
+
+    /**
+     * 账号被锁定
+     */
+    public final static Integer LOCKED_ACCOUNT = -995;
+
+    /**
      * 不正确的密码或令牌
      */
     public final static Integer INCORRECT_CREDENTIALS = -996;
@@ -44,21 +64,6 @@ public class ErrorCode {
      * 授权过期
      */
     public final static Integer AUTHORIZED_EXPIRED = -997;
-
-    /**
-     * 图形验证码不正确
-     */
-    public final static Integer INCORRECT_CAPTCHA = -995;
-
-    /**
-     * 短信验证码不正确
-     */
-    public final static Integer INCORRECT_SMS_CODE = -996;
-
-    /**
-     * 登陆失败
-     */
-    public final static Integer LOGIN_FAIL = -997;
 
     /**
      * 未授权

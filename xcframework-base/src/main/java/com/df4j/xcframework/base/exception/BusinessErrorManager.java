@@ -32,7 +32,8 @@ public class BusinessErrorManager {
         xcframeworkErrorMap.put(AUTHORIZED_EXPIRED, "认证过期");
         xcframeworkErrorMap.put(INCORRECT_CAPTCHA, "图形验证码不正确");
         xcframeworkErrorMap.put(INCORRECT_SMS_CODE, "短信验证码不正确");
-        xcframeworkErrorMap.put(LOGIN_FAIL, "登陆失败");
+        xcframeworkErrorMap.put(DISABLED_ACCOUNT, "账号被禁用");
+        xcframeworkErrorMap.put(LOCKED_ACCOUNT, "账号被锁定");
         xcframeworkErrorMap.put(UNAUTHORIZED, "未授权");
         xcframeworkErrorMap.put(UNLOGIN, "未登录");
         xcframeworkErrorMap.put(INCORRECT_SQL, "不正确的SQL语句");

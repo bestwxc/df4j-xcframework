@@ -65,7 +65,7 @@ public class LongRedisIdentityGenerator implements IdentityGenerator<Long> {
                 String lockId = String.valueOf(System.currentTimeMillis());
                 boolean flag = redisDistributedLock.doInLock(keyGroup, keyName, lockId, 30000, () -> {
                     String redisKey = redisDistributedLock.getKey(keyGroup, keyName);
-                    Long tmp = stringRedisTemplate.opsForValue().increment(redisKey, 0);
+                    Long tmp = stringRedisTemplate.opsForValue().increment(redisKey, 1);
                     boolean checkTemp = this.validate(tmp);
                     logger.info("查询到当前的值,keyGroup:{}, keyName:{}, tmp:{}, checked:{}",
                             keyGroup, keyName, tmp, checked);
@@ -73,7 +73,7 @@ public class LongRedisIdentityGenerator implements IdentityGenerator<Long> {
                     Long id = jdbcTemplate.queryForObject(String.format(sql, keyName), Long.class);
                     id = ObjectUtils.isEmpty(id) ? 1000L : id + 1;
                     stringRedisTemplate.opsForValue().set(redisKey, String.valueOf(id));
-                    tmp = stringRedisTemplate.opsForValue().increment(redisKey, 0);
+                    tmp = stringRedisTemplate.opsForValue().increment(redisKey, 1);
                     logger.info("重新初始化，查询到当前的值,keyGroup:{}, keyName:{}, tmp:{}, checked:{}",
                             keyGroup, keyName, tmp, checked);
                     return this.validate(tmp);
