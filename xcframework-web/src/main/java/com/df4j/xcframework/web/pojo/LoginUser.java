@@ -41,6 +41,21 @@ public class LoginUser implements Serializable {
     private String deptCode;
 
     /**
+     * 用户类型
+     */
+    private Integer userType;
+
+    /**
+     * 来源类型
+     */
+    private Integer sourceType;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    /**
      * 用户角色
      */
     private List<String> roleCodes;
@@ -91,6 +106,30 @@ public class LoginUser implements Serializable {
 
     public void setDeptCode(String deptCode) {
         this.deptCode = deptCode;
+    }
+
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public Integer getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(Integer sourceType) {
+        this.sourceType = sourceType;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public List<String> getRoleCodes() {
