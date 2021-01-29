@@ -15,7 +15,7 @@ import static com.df4j.xcframework.boot.datasource.DynamicDatasourceBeanFactoryP
 public class DynamicDataSourceAutoConfiguration {
 
     @Bean
-    DynamicDatasourceBeanFactoryPostProcessor dynamicDatasourceBeanFactoryPostProcessor() {
+    public static DynamicDatasourceBeanFactoryPostProcessor dynamicDatasourceBeanFactoryPostProcessor() {
         return new DynamicDatasourceBeanFactoryPostProcessor();
     }
 
